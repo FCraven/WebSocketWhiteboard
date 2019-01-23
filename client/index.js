@@ -5,3 +5,7 @@ import whiteboard, {draw} from './whiteboard'
 
 // Example: Draw a single stroke.
 draw([0, 0], [250, 250], 'red', true)
+
+whiteboard.on('draw',(start,end,strokeColor)=> {
+  console.log(start, end, strokeColor)
+})

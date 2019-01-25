@@ -11,4 +11,13 @@ const server = app.listen(1337, () => {
 
 const io =  socketio(server)
 
+io.on('connection',function(socket){
+  console.log('A new client is connected!!')
+  console.log(`socket Id--->`, socket.id)
+})
+
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', function(req,res) {
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
